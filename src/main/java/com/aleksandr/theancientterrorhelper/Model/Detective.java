@@ -25,7 +25,4 @@ public class Detective {
     private Location startedLocation;
     private String startedInventory; //description of stared actives
 
-
-
-
 }
