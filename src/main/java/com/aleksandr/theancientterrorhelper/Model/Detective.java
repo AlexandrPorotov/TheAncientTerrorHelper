@@ -1,5 +1,7 @@
 package com.aleksandr.theancientterrorhelper.Model;
 
+import com.aleksandr.theancientterrorhelper.Model.Location.Location;
+
 import java.io.File;
 import java.rmi.server.UID;
 
