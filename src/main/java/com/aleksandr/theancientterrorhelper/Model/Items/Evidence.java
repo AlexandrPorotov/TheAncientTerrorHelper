@@ -1,4 +1,4 @@
-package com.aleksandr.theancientterrorhelper.Model;
+package com.aleksandr.theancientterrorhelper.Model.Items;
 
 import com.aleksandr.theancientterrorhelper.Model.Location.Location;
 
