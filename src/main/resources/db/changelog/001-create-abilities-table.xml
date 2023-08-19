@@ -13,9 +13,6 @@
             <column name="attention" type="INTEGER"/>
             <column name="force" type="INTEGER"/>
             <column name="will" type="INTEGER"/>
-            <column name="detective_id" type="BIGINT">
-                <constraints nullable="true"/>
-            </column>
         </createTable>
     </changeSet>
 
@@ -35,10 +32,15 @@
     </changeSet>
 
     <changeSet id="v1:3" author="Dale">
-        <addForeignKeyConstraint baseTableName="abilities"
-                                 baseColumnNames="detective_id"
-                                 constraintName="fk_abilities_detective"
-                                 referencedTableName="detectives"
+        <addColumn tableName="detectives">
+            <column name="abilities_id" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="detectives"
+                                 baseColumnNames="abilities_id"
+                                 constraintName="fk_detective_abilities"
+                                 referencedTableName="abilities"
                                  referencedColumnNames="id"/>
     </changeSet>
 

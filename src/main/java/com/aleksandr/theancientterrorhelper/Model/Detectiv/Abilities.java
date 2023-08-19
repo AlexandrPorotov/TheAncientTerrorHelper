@@ -23,6 +23,7 @@ public class Abilities {
 
     private Integer will;
 
+
     @OneToOne(mappedBy = "abilities", cascade = CascadeType.ALL)
     private Detective detective;
 
