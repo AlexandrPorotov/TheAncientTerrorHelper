@@ -2,6 +2,7 @@ package com.aleksandr.theancientterrorhelper.Model.ContactCard;
 
 import java.rmi.server.UID;
 
+
 public class ContactCard {
 
     private UID id;
