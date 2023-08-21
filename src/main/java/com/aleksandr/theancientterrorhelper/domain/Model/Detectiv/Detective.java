@@ -1,62 +1,74 @@
-package com.aleksandr.theancientterrorhelper.Model.Detectiv;
+package com.aleksandr.theancientterrorhelper.domain.Model.Detectiv;
 
+import com.aleksandr.theancientterrorhelper.domain.Model.Items.Active;
+import com.aleksandr.theancientterrorhelper.domain.Model.Items.Artifact;
+import com.aleksandr.theancientterrorhelper.domain.Model.Items.Evidence;
+import com.aleksandr.theancientterrorhelper.domain.Model.Location.Location;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 import java.io.File;
+import java.rmi.server.UID;
+import java.util.List;
+
 //The class which is descriptions of users detective card
-@Data
 @Entity
-@Table(name = "detectives")
+@Data
+@EqualsAndHashCode(of = "id")
+@Accessors(chain = true)
 public class Detective {
 
-    //TO DO
-    //add list of actives
-    //? actions and ability classes ?
-    //class of
-
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "uuid2")
+    private UID id;
 
     private File avatar; //not used
-
     private String name;
-
     private String profession;
-
     private String action; //description of action
-
     private String ability;//description of ability
-
     private String phrase;
-
     private Integer fiscalHealth;
-
     private Integer mentalHealth;
 
     @OneToOne
     @JoinColumn(name = "abilities_id")
     private Abilities abilities;
 
-    //need to add list of things (tickets/weapon)
-
     //another side of card
-    /*
+
+    @ManyToOne
+    @JoinColumn(name = "started_location_id")
     private Location startedLocation;
-    private Location currentLocation;
+
+//    @ManyToOne
+//    @JoinColumn(name = "current_location_id")
+//    private Location currentLocation;
+
     private String startedInventory; //description of stared actives
 
+    @OneToMany(mappedBy = "detective")
     private List<Active> startedActives;
+
+    @OneToMany(mappedBy = "detective")
     private List<Artifact> startedArtifacts;
+
+    @OneToMany(mappedBy = "detective")
     private List<Evidence> startedEvidence;
+
+    @OneToMany(mappedBy = "detective")
     private List<Active> currentActives;
+
+    @OneToMany(mappedBy = "detective")
     private List<Artifact> currentArtifacts;
+
+    @OneToMany(mappedBy = "detective")
     private List<Evidence> currentEvidence;
+
     private String biography;
     private String deathDescription;
     private String madOffDescription;
-    */
 
 }

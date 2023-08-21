@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
+
+    <!--Create Detective Table-->
+    <changeSet id="v1:1" author="Dale">
+        <createTable tableName="detectives">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_detective_id"/>
+            </column>
+            <column name="name" type="VARCHAR(50)" />
+            <column name="profession" type="VARCHAR(50)"/>
+            <column name="action" type="VARCHAR(255)"/>
+            <column name="ability" type="VARCHAR(255)"/>
+            <column name="phrase" type="VARCHAR(255)"/>
+            <column name="fiscal_health" type="INTEGER"/>
+            <column name="mental_health" type="INTEGER"/>
+            <column name="started_inventory" type="VARCHAR(255)"/>
+            <column name="biography" type="VARCHAR(255)"/>
+            <column name="death_description" type="VARCHAR(255)"/>
+            <column name="mad_off_description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <!--Create Abilities Table-->
+    <changeSet id="v1:2" author="Dale">
+        <createTable tableName="abilities">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_abilities_id"/>
+            </column>
+            <column name="knowledge" type="INTEGER"/>
+            <column name="communication" type="INTEGER"/>
+            <column name="attention" type="INTEGER"/>
+            <column name="force" type="INTEGER"/>
+            <column name="will" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+
+    <!--Create Location Table-->
+    <changeSet id="v1:3" author="Dale">
+        <createTable tableName="locations">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_location_id"/>
+            </column>
+            <column name="number" type="INTEGER"/>
+            <column name="type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <!--Create Evidences Table-->
+    <changeSet id="v1:4" author="Dale">
+        <createTable tableName="evidences">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_evidence_id"/>
+            </column>
+            <column name="on_field_flag" type="BOOLEAN" />
+        </createTable>
+    </changeSet>
+
+    <!--Create Artifacts Table-->
+    <changeSet id="v1:5" author="Dale">
+        <createTable tableName="artifacts">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_artifact_id"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <!--Create Actives Table-->
+    <changeSet id="v1:6" author="Dale">
+        <createTable tableName="actives">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_active_id"/>
+            </column>
+            <column name="price" type="INTEGER"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

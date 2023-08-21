@@ -1,4 +1,4 @@
-package com.aleksandr.theancientterrorhelper.Model.Spell;
+package com.aleksandr.theancientterrorhelper.domain.Model.Spell;
 
 import java.io.File;
 import java.rmi.server.UID;
