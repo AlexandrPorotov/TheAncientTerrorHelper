@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.rmi.server.UID;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -17,7 +17,7 @@ public class Evidence {
 
     @Id
     @GeneratedValue(generator = "uuid2")
-    private UID id;
+    private UUID id;
 
     @ManyToOne
     @JoinColumn(name = "location_id")

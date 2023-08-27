@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.rmi.server.UID;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -19,7 +19,7 @@ public class Artifact {
 
     @Id
     @GeneratedValue(generator = "uuid2")
-    private UID id;
+    private UUID id;
 
     private String name;
     private String description;

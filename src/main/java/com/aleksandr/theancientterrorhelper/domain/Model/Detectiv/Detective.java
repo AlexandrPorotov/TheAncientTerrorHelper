@@ -10,8 +10,8 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.File;
-import java.rmi.server.UID;
 import java.util.List;
+import java.util.UUID;
 
 //The class which is descriptions of users detective card
 @Entity
@@ -22,7 +22,7 @@ public class Detective {
 
     @Id
     @GeneratedValue(generator = "uuid2")
-    private UID id;
+    private UUID id;
 
     private File avatar; //not used
     private String name;

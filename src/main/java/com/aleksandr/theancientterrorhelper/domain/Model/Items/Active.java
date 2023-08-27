@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.File;
-import java.rmi.server.UID;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -20,7 +20,7 @@ public class Active {
 
     @Id
     @GeneratedValue(generator = "uuid2")
-    private UID id;
+    private UUID id;
 
     private File avatar; //not used
 

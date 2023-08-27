@@ -8,8 +8,8 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.File;
-import java.rmi.server.UID;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -19,7 +19,7 @@ public class Location {
 
     @Id
     @GeneratedValue(generator = "uuid2")
-    private UID id;
+    private UUID id;
 
     private int number;
 
