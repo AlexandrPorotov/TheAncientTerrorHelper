@@ -1,4 +1,4 @@
-package com.aleksandr.theancientterrorhelper.domain.dto;
+package com.aleksandr.theancientterrorhelper.domain.dto.Detective;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -36,6 +36,8 @@ public class DetectiveDTO {
     @Min(value = 1, message = "The mentalHealth cannot be less than 1")
     @Max(value = 15, message = "The mentalHealth cannot be greater than 15")
     private Integer mentalHealth;
+
+
 
 
 }
