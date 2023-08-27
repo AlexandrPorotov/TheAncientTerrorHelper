@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
+
+    <changeSet id="v3:1" author="Dale">
+        <loadData encoding="UTF-8" file="data/DETECTIVE.csv" tableName="detectives" separator="," relativeToChangelogFile="true">
+            <column name="id" type="UUID"/>
+            <column name="name" type="VARCHAR(50)" />
+            <column name="profession" type="VARCHAR(50)"/>
+            <column name="action" type="VARCHAR(255)"/>
+            <column name="ability" type="VARCHAR(255)"/>
+            <column name="phrase" type="VARCHAR(255)"/>
+            <column name="fiscal_health" type="INTEGER"/>
+            <column name="mental_health" type="INTEGER"/>
+            <column name="started_inventory" type="VARCHAR(255)"/>
+            <column name="biography" type="VARCHAR(255)"/>
+            <column name="death_description" type="VARCHAR(255)"/>
+            <column name="mad_off_description" type="VARCHAR(255)"/>
+            <column name="abilities_id" type="UUID"/>
+            <column name="started_location_id" type="UUID"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

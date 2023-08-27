@@ -1,4 +1,4 @@
-package com.aleksandr.theancientterrorhelper.Model.Items.Ticket;
+package com.aleksandr.theancientterrorhelper.domain.Model.Items.Ticket;
 
 import java.rmi.server.UID;
 

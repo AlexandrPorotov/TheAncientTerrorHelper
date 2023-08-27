@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
+
+    <!--Add key Detectives with Abilities -->
+    <changeSet id="v2:1" author="Dale">
+        <addColumn tableName="detectives">
+            <column name="abilities_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="detectives"
+                                 baseColumnNames="abilities_id"
+                                 constraintName="fk_detective_abilities"
+                                 referencedTableName="abilities"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!--Add key Locations with Evidences -->
+    <changeSet id="v2:2" author="Dale">
+        <addColumn tableName="evidences">
+            <column name="location_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="evidences"
+                                 baseColumnNames="location_id"
+                                 constraintName="fk_evidence_location"
+                                 referencedTableName="locations"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!--Add key Detective with Location (started location)-->
+    <changeSet id="v2:3" author="Dale">
+        <addColumn tableName="detectives">
+            <column name="started_location_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="detectives"
+                                 baseColumnNames="started_location_id"
+                                 constraintName="fk_detective_started_location"
+                                 referencedTableName="locations"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!--Add key Detective with Location (current location)
+    <changeSet id="v2:4" author="Dale">
+        <addColumn tableName="detectives">
+            <column name="current_location_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="detectives"
+                                 baseColumnNames="current_location_id"
+                                 constraintName="fk_detective_current_location"
+                                 referencedTableName="locations"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    -->
+
+    <!--Add key Artifact with Detective-->
+    <changeSet id="v2:5" author="Dale">
+        <addColumn tableName="artifacts">
+            <column name="detective_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="artifacts"
+                                 baseColumnNames="detective_id"
+                                 constraintName="fk_artifact_detective"
+                                 referencedTableName="detectives"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!--Add key Active with Detective-->
+    <changeSet id="v2:6" author="Dale">
+        <addColumn tableName="actives">
+            <column name="detective_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="actives"
+                                 baseColumnNames="detective_id"
+                                 constraintName="fk_active_detective"
+                                 referencedTableName="detectives"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

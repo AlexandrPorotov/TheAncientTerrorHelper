@@ -1,4 +1,4 @@
-package com.aleksandr.theancientterrorhelper.Model.MythCard;
+package com.aleksandr.theancientterrorhelper.domain.Model.MythCard;
 
 import java.rmi.server.UID;
 import java.util.List;

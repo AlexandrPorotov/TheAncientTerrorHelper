@@ -1,9 +1,11 @@
 package com.aleksandr.theancientterrorhelper.Repository;
 
-import com.aleksandr.theancientterrorhelper.Model.Detectiv.Abilities;
+import com.aleksandr.theancientterrorhelper.domain.Model.Detectiv.Abilities;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.rmi.server.UID;
+import java.util.UUID;
 
-public interface AbilitiesRepository extends JpaRepository<Abilities, Long> {
+@Repository
+public interface AbilitiesRepository extends JpaRepository<Abilities, UUID> {
 }

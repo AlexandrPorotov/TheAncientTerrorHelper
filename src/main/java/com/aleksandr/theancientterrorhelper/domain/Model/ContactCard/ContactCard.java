@@ -1,4 +1,4 @@
-package com.aleksandr.theancientterrorhelper.Model.ContactCard;
+package com.aleksandr.theancientterrorhelper.domain.Model.ContactCard;
 
 import java.rmi.server.UID;
 

@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/001-create-abilities-table.xml
+      file: db/changelog/001-create-tables.xml
+  - include:
+      file: db/changelog/002-create-dependencies.xml

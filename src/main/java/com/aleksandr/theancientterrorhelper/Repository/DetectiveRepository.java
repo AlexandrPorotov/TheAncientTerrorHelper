@@ -1,9 +1,11 @@
 package com.aleksandr.theancientterrorhelper.Repository;
 
-import com.aleksandr.theancientterrorhelper.Model.Detectiv.Detective;
+import com.aleksandr.theancientterrorhelper.domain.Model.Detectiv.Detective;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.rmi.server.UID;
+import java.util.UUID;
 
-public interface DetectiveRepository extends JpaRepository<Detective, Long> {
+@Repository
+public interface DetectiveRepository extends JpaRepository<Detective, UUID> {
 }
