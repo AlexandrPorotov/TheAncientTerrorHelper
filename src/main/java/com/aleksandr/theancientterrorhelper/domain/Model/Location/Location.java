@@ -34,8 +34,8 @@ public class Location {
 
 
     //We have two fields, need to add one of them (started or current or both)
-    @OneToMany(mappedBy = "startedLocation", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Detective> detectives;
+    //@OneToMany(mappedBy = "startedLocation", cascade = CascadeType.ALL, orphanRemoval = true)
+    //private List<Detective> detectives;
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Evidence> evidences;

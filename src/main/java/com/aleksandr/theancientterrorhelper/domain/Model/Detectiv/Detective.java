@@ -24,7 +24,7 @@ public class Detective {
     @GeneratedValue(generator = "uuid2")
     private UUID id;
 
-    private File avatar; //not used
+    //private File avatar; //not used
     private String name;
     private String profession;
     private String action; //description of action
@@ -38,7 +38,7 @@ public class Detective {
     private Abilities abilities;
 
     //another side of card
-
+/*
     @ManyToOne
     @JoinColumn(name = "started_location_id")
     private Location startedLocation;
@@ -70,5 +70,5 @@ public class Detective {
     private String biography;
     private String deathDescription;
     private String madOffDescription;
-
+*/
 }

@@ -37,7 +37,6 @@ public class DetectiveDTO {
     @Max(value = 15, message = "The mentalHealth cannot be greater than 15")
     private Integer mentalHealth;
 
-
-
+    private AbilitiesDTO abilitiesDTO;
 
 }

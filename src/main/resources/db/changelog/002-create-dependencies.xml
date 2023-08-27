@@ -5,12 +5,12 @@
 
     <!--Add key Detectives with Abilities -->
     <changeSet id="v2:1" author="Dale">
-        <addColumn tableName="detectives">
+        <addColumn tableName="detective">
             <column name="abilities_id" type="UUID">
                 <constraints nullable="true"/>
             </column>
         </addColumn>
-        <addForeignKeyConstraint baseTableName="detectives"
+        <addForeignKeyConstraint baseTableName="detective"
                                  baseColumnNames="abilities_id"
                                  constraintName="fk_detective_abilities"
                                  referencedTableName="abilities"
@@ -19,29 +19,29 @@
 
     <!--Add key Locations with Evidences -->
     <changeSet id="v2:2" author="Dale">
-        <addColumn tableName="evidences">
+        <addColumn tableName="evidence">
             <column name="location_id" type="UUID">
                 <constraints nullable="true"/>
             </column>
         </addColumn>
-        <addForeignKeyConstraint baseTableName="evidences"
+        <addForeignKeyConstraint baseTableName="evidence"
                                  baseColumnNames="location_id"
                                  constraintName="fk_evidence_location"
-                                 referencedTableName="locations"
+                                 referencedTableName="location"
                                  referencedColumnNames="id"/>
     </changeSet>
 
     <!--Add key Detective with Location (started location)-->
     <changeSet id="v2:3" author="Dale">
-        <addColumn tableName="detectives">
+        <addColumn tableName="detective">
             <column name="started_location_id" type="UUID">
                 <constraints nullable="true"/>
             </column>
         </addColumn>
-        <addForeignKeyConstraint baseTableName="detectives"
+        <addForeignKeyConstraint baseTableName="detective"
                                  baseColumnNames="started_location_id"
                                  constraintName="fk_detective_started_location"
-                                 referencedTableName="locations"
+                                 referencedTableName="location"
                                  referencedColumnNames="id"/>
     </changeSet>
 
@@ -62,29 +62,29 @@
 
     <!--Add key Artifact with Detective-->
     <changeSet id="v2:5" author="Dale">
-        <addColumn tableName="artifacts">
+        <addColumn tableName="artifact">
             <column name="detective_id" type="UUID">
                 <constraints nullable="true"/>
             </column>
         </addColumn>
-        <addForeignKeyConstraint baseTableName="artifacts"
+        <addForeignKeyConstraint baseTableName="artifact"
                                  baseColumnNames="detective_id"
                                  constraintName="fk_artifact_detective"
-                                 referencedTableName="detectives"
+                                 referencedTableName="detective"
                                  referencedColumnNames="id"/>
     </changeSet>
 
     <!--Add key Active with Detective-->
     <changeSet id="v2:6" author="Dale">
-        <addColumn tableName="actives">
+        <addColumn tableName="active">
             <column name="detective_id" type="UUID">
                 <constraints nullable="true"/>
             </column>
         </addColumn>
-        <addForeignKeyConstraint baseTableName="actives"
+        <addForeignKeyConstraint baseTableName="active"
                                  baseColumnNames="detective_id"
                                  constraintName="fk_active_detective"
-                                 referencedTableName="detectives"
+                                 referencedTableName="detective"
                                  referencedColumnNames="id"/>
     </changeSet>
 
