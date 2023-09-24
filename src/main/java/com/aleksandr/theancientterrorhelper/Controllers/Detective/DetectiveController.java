@@ -4,6 +4,7 @@ import com.aleksandr.theancientterrorhelper.Services.DetectiveService.DetectiveS
 import com.aleksandr.theancientterrorhelper.Utils.JsonUtil;
 import com.aleksandr.theancientterrorhelper.domain.Model.Detectiv.Detective;
 import com.aleksandr.theancientterrorhelper.domain.dto.Detective.DetectiveDTO;
+import com.aleksandr.theancientterrorhelper.domain.mapper.DetectiveMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +23,7 @@ import java.util.UUID;
 public class DetectiveController {
 
     private final DetectiveService detectiveService;
+    private final DetectiveMapper detectiveMapper;
 
 //    @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
@@ -31,13 +33,13 @@ public class DetectiveController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Detective> createArticle(@RequestBody DetectiveDTO detectiveDTO) {
+    public ResponseEntity<DetectiveDTO> createArticle(@RequestBody DetectiveDTO detectiveDTO) {
 
         log.info("Creating Detective: {}", detectiveDTO);
         Detective createdDetective = detectiveService.saveDetective(detectiveDTO);
         log.info("Created Detective: {}", createdDetective);
 
-        return new ResponseEntity<>(createdDetective, HttpStatus.CREATED);
+        return new ResponseEntity<>(detectiveMapper.to(createdDetective), HttpStatus.CREATED);
 
     }
 

@@ -33,7 +33,7 @@ public class DetectiveService {
             throw new ResourceAlreadyExistsException("Detective with name '" + detectiveDTO.getName() + "' already exists");
         }
 
-        Abilities abilities = abilitiesMapper.from(detectiveDTO.getAbilitiesDTO());
+        Abilities abilities = abilitiesMapper.from(detectiveDTO.getAbilities());
         abilitiesRepository.save(abilities);
         Detective detective = detectiveMapper.from(detectiveDTO);
         detective.setAbilities(abilities);

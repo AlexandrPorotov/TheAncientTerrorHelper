@@ -34,13 +34,13 @@
     <!--Add key Detective with Location (started location)-->
     <changeSet id="v2:3" author="Dale">
         <addColumn tableName="detective">
-            <column name="started_location_id" type="UUID">
+            <column name="location_id" type="UUID">
                 <constraints nullable="true"/>
             </column>
         </addColumn>
         <addForeignKeyConstraint baseTableName="detective"
-                                 baseColumnNames="started_location_id"
-                                 constraintName="fk_detective_started_location"
+                                 baseColumnNames="location_id"
+                                 constraintName="fk_detective_location"
                                  referencedTableName="location"
                                  referencedColumnNames="id"/>
     </changeSet>
