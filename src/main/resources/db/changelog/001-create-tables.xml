@@ -5,7 +5,7 @@
 
     <!--Create Detective Table-->
     <changeSet id="v1:1" author="Dale">
-        <createTable tableName="detectives">
+        <createTable tableName="detective">
             <column name="id" type="UUID">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_detective_id"/>
             </column>
@@ -39,7 +39,7 @@
 
     <!--Create Location Table-->
     <changeSet id="v1:3" author="Dale">
-        <createTable tableName="locations">
+        <createTable tableName="location">
             <column name="id" type="UUID">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_location_id"/>
             </column>
@@ -50,7 +50,7 @@
 
     <!--Create Evidences Table-->
     <changeSet id="v1:4" author="Dale">
-        <createTable tableName="evidences">
+        <createTable tableName="evidence">
             <column name="id" type="UUID">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_evidence_id"/>
             </column>
@@ -60,7 +60,7 @@
 
     <!--Create Artifacts Table-->
     <changeSet id="v1:5" author="Dale">
-        <createTable tableName="artifacts">
+        <createTable tableName="artifact">
             <column name="id" type="UUID">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_artifact_id"/>
             </column>
@@ -71,7 +71,7 @@
 
     <!--Create Actives Table-->
     <changeSet id="v1:6" author="Dale">
-        <createTable tableName="actives">
+        <createTable tableName="active">
             <column name="id" type="UUID">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_active_id"/>
             </column>

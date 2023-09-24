@@ -24,7 +24,7 @@ public class Detective {
     @GeneratedValue(generator = "uuid2")
     private UUID id;
 
-    private File avatar; //not used
+    //private File avatar; //not used
     private String name;
     private String profession;
     private String action; //description of action
@@ -39,9 +39,9 @@ public class Detective {
 
     //another side of card
 
-    @ManyToOne
-    @JoinColumn(name = "started_location_id")
-    private Location startedLocation;
+//    @ManyToOne
+//    @JoinColumn(name = "location_id")
+//    private Location location;
 
 //    @ManyToOne
 //    @JoinColumn(name = "current_location_id")
@@ -49,23 +49,23 @@ public class Detective {
 
     private String startedInventory; //description of stared actives
 
-    @OneToMany(mappedBy = "detective")
-    private List<Active> startedActives;
-
-    @OneToMany(mappedBy = "detective")
-    private List<Artifact> startedArtifacts;
-
-    @OneToMany(mappedBy = "detective")
-    private List<Evidence> startedEvidence;
-
-    @OneToMany(mappedBy = "detective")
-    private List<Active> currentActives;
-
-    @OneToMany(mappedBy = "detective")
-    private List<Artifact> currentArtifacts;
-
-    @OneToMany(mappedBy = "detective")
-    private List<Evidence> currentEvidence;
+//    @OneToMany(mappedBy = "detective")
+//    private List<Active> startedActives;
+//
+//    @OneToMany(mappedBy = "detective")
+//    private List<Artifact> startedArtifacts;
+//
+//    @OneToMany(mappedBy = "detective")
+//    private List<Evidence> startedEvidence;
+//
+//    @OneToMany(mappedBy = "detective")
+//    private List<Active> currentActives;
+//
+//    @OneToMany(mappedBy = "detective")
+//    private List<Artifact> currentArtifacts;
+//
+//    @OneToMany(mappedBy = "detective")
+//    private List<Evidence> currentEvidence;
 
     private String biography;
     private String deathDescription;

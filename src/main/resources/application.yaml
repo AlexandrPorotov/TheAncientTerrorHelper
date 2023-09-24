@@ -1,0 +1,13 @@
+server:
+    port: ${SERVER_PORT:8080}
+    servlet:
+        context-path: ${ROOT_WEB_CONTEXT:/}
+
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/game_table}
+        username: ${DB_USER:postgres}
+        password: ${DB_PASSWORD:xDv-3t}
+    liquibase:
+        change-log: /db/changelog/db-changelog-master.yaml
