@@ -7,8 +7,8 @@ databaseChangeLog:
       file: db/changelog/003-insert-data-location.xml
   - include:
       file: db/changelog/004-insert-data-path.xml
-
-
+  - include:
+      file: db/changelog/005-insert-data-abilities.xml
   - include:
       file: db/changelog/006-insert-data-detective.xml
 

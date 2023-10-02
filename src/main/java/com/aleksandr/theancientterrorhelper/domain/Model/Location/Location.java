@@ -26,9 +26,9 @@ public class Location {
 
     private String name;
 
-    private File image; //location picture
+    //private File image; //location picture
 
-    private File icon; //location icon (city, sea, wilderness)
+    //private File icon; //location icon (city, sea, wilderness)
 
     @Enumerated(EnumType.STRING)
     private LocationType type; //city, sea, wilderness

@@ -5,7 +5,7 @@
 
 
     <!--Charlie Kane-->
-    <changeSet id="v6:2" author="Dale">
+    <changeSet id="v6:1" author="Dale">
         <insert tableName="detective">
             <column name="id" valueComputed="gen_random_uuid()"/>
             <column name="name" value="Чарли Кейн" />
@@ -16,13 +16,11 @@
             <column name="fiscal_health" value="4"/>
             <column name="mental_health" value="8"/>
             <column name="started_inventory" value="1 актив 'Личный помощник'"/>
-            <column name="biography" value="Чарли Кейн"/>
-            <column name="death_description" value="Чарли Кейн"/>
-            <column name="mad_off_description" value="Чарли Кейн"/>
-            <!--
-            <column name="abilities_id" valueComputed="gen_random_uuid()"/>
-            <column name="location_id" valueComputed="gen_random_uuid()"/>
-            -->
+            <column name="biography" value="Когда репортеры спрашивают, не планирует ли чарли..."/>
+            <column name="death_description" value="Медсестра в регистратуре вручает вам свёрток..."/>
+            <column name="mad_off_description" value="Когда вы входите в ресторан, Чарли первым делом сует вам..."/>
+            <column name="abilities_id" valueComputed="(SELECT id FROM abilities WHERE name_detective = 'Charlie Kane')"/>
+            <column name="location_id" valueComputed="(SELECT id FROM location WHERE name = 'Сан-Франциско')"/>
         </insert>
     </changeSet>
 

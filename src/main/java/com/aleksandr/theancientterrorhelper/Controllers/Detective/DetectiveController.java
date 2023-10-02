@@ -8,6 +8,7 @@ import com.aleksandr.theancientterrorhelper.domain.mapper.DetectiveMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -33,7 +34,7 @@ public class DetectiveController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<DetectiveDTO> createArticle(@RequestBody DetectiveDTO detectiveDTO) {
+    public ResponseEntity<DetectiveDTO> createDetective(@RequestBody DetectiveDTO detectiveDTO) {
 
         log.info("Creating Detective: {}", detectiveDTO);
         Detective createdDetective = detectiveService.saveDetective(detectiveDTO);
@@ -41,6 +42,12 @@ public class DetectiveController {
 
         return new ResponseEntity<>(detectiveMapper.to(createdDetective), HttpStatus.CREATED);
 
+    }
+
+    @GetMapping("/{detectiveId}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<DetectiveDTO> getDetectiveById(@PathVariable UUID detectiveId){
+        return new ResponseEntity<>(detectiveMapper.to(detectiveService.getDetectiveById(detectiveId)), HttpStatus.OK);
     }
 
 }
