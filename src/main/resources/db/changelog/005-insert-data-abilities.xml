@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
+
+
+    <!--Charlie Kane-->
+    <changeSet id="v5:1" author="Dale">
+        <insert tableName="abilities">
+            <column name="id" valueComputed="gen_random_uuid()"/>
+            <column name="knowledge" value="2" />
+            <column name="communication" value="4" />
+            <column name="attention" value="3" />
+            <column name="force" value="2" />
+            <column name="will" value="2" />
+            <column name="name_detective" value="Charlie Kane" />
+        </insert>
+    </changeSet>
+
+
+
+</databaseChangeLog>

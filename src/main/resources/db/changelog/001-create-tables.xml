@@ -47,7 +47,7 @@
             <column name="number" type="INTEGER"/>
             <column name="name" type="VARCHAR(255)"/>
             <column name="type" type="VARCHAR(255)"/>
-            <column name="region" type="VARCHAR(255)"/>
+            <column name="region_type" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
 
