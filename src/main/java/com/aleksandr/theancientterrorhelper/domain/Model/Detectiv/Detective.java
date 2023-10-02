@@ -39,13 +39,9 @@ public class Detective {
 
     //another side of card
 
-//    @ManyToOne
-//    @JoinColumn(name = "location_id")
-//    private Location location;
-
-//    @ManyToOne
-//    @JoinColumn(name = "current_location_id")
-//    private Location currentLocation;
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
 
     private String startedInventory; //description of stared actives
 

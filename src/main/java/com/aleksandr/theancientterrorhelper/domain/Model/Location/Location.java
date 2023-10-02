@@ -2,6 +2,7 @@ package com.aleksandr.theancientterrorhelper.domain.Model.Location;
 
 import com.aleksandr.theancientterrorhelper.domain.Model.Detectiv.Detective;
 import com.aleksandr.theancientterrorhelper.domain.Model.Items.Evidence;
+import com.aleksandr.theancientterrorhelper.domain.Model.Location.Path.Path;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,7 +19,7 @@ import java.util.UUID;
 public class Location {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
+    @GeneratedValue(generator = "uuid2", strategy = GenerationType.AUTO)
     private UUID id;
 
     private int number;
@@ -32,10 +33,19 @@ public class Location {
     @Enumerated(EnumType.STRING)
     private LocationType type; //city, sea, wilderness
 
+    @Enumerated(EnumType.STRING)
+    private RegionType regionType; //America, Europe, Asia and Australia
 
-    //We have two fields, need to add one of them (started or current or both)
-//    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Detective> detectives;
+    @OneToMany(mappedBy = "location")
+    private List<Detective> detectives;
+
+    //Paths for this location incoming and coming
+
+    @OneToMany(mappedBy = "startLocation")
+    private List<Path> pathsFromThisLocation;
+
+    @OneToMany(mappedBy = "endLocation")
+    private List<Path> pathsToThisLocation;
 
     //@OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true)
     //private List<Evidence> evidences;

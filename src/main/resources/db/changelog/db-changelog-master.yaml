@@ -3,3 +3,12 @@ databaseChangeLog:
       file: db/changelog/001-create-tables.xml
   - include:
       file: db/changelog/002-create-dependencies.xml
+  - include:
+      file: db/changelog/003-insert-data-location.xml
+  - include:
+      file: db/changelog/004-insert-data-path.xml
+
+
+  - include:
+      file: db/changelog/006-insert-data-detective.xml
+
