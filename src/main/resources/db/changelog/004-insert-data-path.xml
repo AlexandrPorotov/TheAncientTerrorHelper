@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
+
+    <changeSet id="v4:1" author="Dale">
+        <!-- SQL-скрипт для создания пути с использованием SQL-запросов -->
+        <sql>
+        <![CDATA[
+            INSERT INTO path (id, type, start_location_id, end_location_id)
+            VALUES (gen_random_uuid(), 'TRAIL', (SELECT id FROM location WHERE name = 'Сан-Франциско'), (SELECT id FROM location WHERE number = 5));
+            ]]>
+    </sql>
+    </changeSet>
+
+</databaseChangeLog>

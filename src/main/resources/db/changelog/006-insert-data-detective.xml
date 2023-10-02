@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
+
+
+    <!--Charlie Kane-->
+    <changeSet id="v6:2" author="Dale">
+        <insert tableName="detective">
+            <column name="id" valueComputed="gen_random_uuid()"/>
+            <column name="name" value="Чарли Кейн" />
+            <column name="profession" value="Политик"/>
+            <column name="action" value="Другой сыщик на ваш выбор может немедленно совершить 1 дополнительное действие."/>
+            <column name="ability" value="Приобретая активы, вы можете позволить другим сыщикам взять любые приобретённые вами карты."/>
+            <column name="phrase" value="Это можно устроить. Вопрос только в цене."/>
+            <column name="fiscal_health" value="4"/>
+            <column name="mental_health" value="8"/>
+            <column name="started_inventory" value="1 актив 'Личный помощник'"/>
+            <column name="biography" value="Чарли Кейн"/>
+            <column name="death_description" value="Чарли Кейн"/>
+            <column name="mad_off_description" value="Чарли Кейн"/>
+            <!--
+            <column name="abilities_id" valueComputed="gen_random_uuid()"/>
+            <column name="location_id" valueComputed="gen_random_uuid()"/>
+            -->
+        </insert>
+    </changeSet>
+
+
+
+</databaseChangeLog>

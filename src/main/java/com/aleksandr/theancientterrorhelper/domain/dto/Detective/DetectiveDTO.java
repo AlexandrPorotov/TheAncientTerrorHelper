@@ -46,8 +46,7 @@ public class DetectiveDTO {
 
     //another side of card
 
-//    private Location location;
-//    private Location currentLocation;
+    private LocationDTO location;
 
     @Size(min = 1, message = "The startedInventory cannot be less than 1")
     @Size(max = 100, message = "The startedInventory cannot be greater than 100")
