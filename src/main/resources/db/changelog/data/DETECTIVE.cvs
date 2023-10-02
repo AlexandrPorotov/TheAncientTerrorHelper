@@ -1,2 +1,0 @@
-id,name,profession,action,ability,phrase,fiscal_health,mental_health,started_inventory,biography,death_description,mad_off_description,abilities_id,started_location_id
-6bfc2af7-4169-4607-9ee8-3de077b6d4fd,test_name,test_prof,test_action,test_ability,test_phrase,10,10,test_inv,test_biography,test_dead,test_mad_off,6bfc2af7-4169-4607-9ee8-3de077b6d4fd,6bfc2af7-4169-4607-9ee8-3de077b6d4fd

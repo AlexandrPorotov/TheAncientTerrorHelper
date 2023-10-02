@@ -31,7 +31,7 @@
                                  referencedColumnNames="id"/>
     </changeSet>
 
-    <!--Add key Detective with Location (started location)-->
+    <!--Add key Detective with Location-->
     <changeSet id="v2:3" author="Dale">
         <addColumn tableName="detective">
             <column name="location_id" type="UUID">
@@ -85,6 +85,30 @@
                                  baseColumnNames="detective_id"
                                  constraintName="fk_active_detective"
                                  referencedTableName="detective"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- Add key Path with Location-->
+    <changeSet id="v2:7" author="Dale">
+        <addColumn tableName="path">
+            <column name="start_location_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="path"
+                                 baseColumnNames="start_location_id"
+                                 constraintName="fk_path_start_location"
+                                 referencedTableName="location"
+                                 referencedColumnNames="id"/>
+        <addColumn tableName="path">
+            <column name="end_location_id" type="UUID">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="path"
+                                 baseColumnNames="end_location_id"
+                                 constraintName="fk_path_end_location"
+                                 referencedTableName="location"
                                  referencedColumnNames="id"/>
     </changeSet>
 

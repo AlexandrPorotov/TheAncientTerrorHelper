@@ -29,6 +29,7 @@ public class Abilities {
 
     private Integer will;
 
+    private String nameDetective;
 
     @OneToOne(mappedBy = "abilities", cascade = CascadeType.ALL)
     private Detective detective;
