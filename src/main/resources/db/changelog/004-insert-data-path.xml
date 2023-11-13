@@ -3,14 +3,46 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
 
+    <property name="uuid_function" value="gen_random_uuid()" dbms="postgresql"/>
+    <property name="uuid_type" value="uuid" dbms="postgresql"/>
+
     <changeSet id="v4:1" author="Dale">
-        <!-- SQL-скрипт для создания пути с использованием SQL-запросов -->
+        <createTable tableName="temp_location_numbers">
+            <column name="id" type="UUID" defaultValueComputed="gen_random_uuid()">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_temp_location_numbers_id"/>
+            </column>
+            <column name="start_location_number" type="INTEGER"/>
+            <column name="end_location_number" type="INTEGER"/>
+            <column name="type" type="VARCHAR"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="v4:2" author="Dale">
+        <loadData
+                file="db/changelog/data/PATH.csv"
+                separator=","
+                tableName="temp_location_numbers">
+            <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}"/>
+            <column name="start_location_number" type="INTEGER"/>
+            <column name="end_location_number" type="INTEGER"/>
+            <column name="type" type="STRING"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="v4:3" author="Dale">
         <sql>
-        <![CDATA[
             INSERT INTO path (id, type, start_location_id, end_location_id)
-            VALUES (gen_random_uuid(), 'TRAIL', (SELECT id FROM location WHERE name = 'Сан-Франциско'), (SELECT id FROM location WHERE number = 5));
-            ]]>
-    </sql>
+            SELECT gen_random_uuid(), tl.type, sl.id, el.id
+            FROM temp_location_numbers tl
+                     INNER JOIN location sl ON tl.start_location_number = sl.number
+                     INNER JOIN location el ON tl.end_location_number = el.number;
+        </sql>
+    </changeSet>
+
+    <changeSet id="v4:4" author="Dale">
+        <sql>
+            DROP TABLE temp_location_numbers;
+        </sql>
     </changeSet>
 
 </databaseChangeLog>

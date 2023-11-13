@@ -3,20 +3,22 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
 
+    <property name="uuid_function" value="gen_random_uuid()" dbms="postgresql"/>
+    <property name="uuid_type" value="uuid" dbms="postgresql"/>
 
-    <!--Charlie Kane-->
-    <changeSet id="v5:1" author="Dale">
-        <insert tableName="abilities">
-            <column name="id" valueComputed="gen_random_uuid()"/>
-            <column name="knowledge" value="2" />
-            <column name="communication" value="4" />
-            <column name="attention" value="3" />
-            <column name="force" value="2" />
-            <column name="will" value="2" />
-            <column name="name_detective" value="Charlie Kane" />
-        </insert>
-    </changeSet>
-
-
+   <changeSet id="v5:1" author="Dale">
+       <loadData
+               file="db/changelog/data/ABILITIES.csv"
+               separator=","
+               tableName="abilities">
+           <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}"/>
+           <column name="knowledge" type="INTEGER" />
+           <column name="communication" type="INTEGER" />
+           <column name="attention" type="INTEGER" />
+           <column name="force" type="INTEGER" />
+           <column name="will" type="INTEGER" />
+           <column name="name_detective" type="STRING" />
+       </loadData>
+   </changeSet>
 
 </databaseChangeLog>
