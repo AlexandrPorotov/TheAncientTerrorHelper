@@ -1,14 +1,12 @@
 package com.aleksandr.theancientterrorhelper.Controllers.Detective;
 
 import com.aleksandr.theancientterrorhelper.Services.DetectiveService.DetectiveService;
-import com.aleksandr.theancientterrorhelper.Utils.JsonUtil;
 import com.aleksandr.theancientterrorhelper.domain.Model.Detectiv.Detective;
 import com.aleksandr.theancientterrorhelper.domain.dto.Detective.DetectiveDTO;
 import com.aleksandr.theancientterrorhelper.domain.mapper.DetectiveMapper;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -48,7 +46,14 @@ public class DetectiveController {
     @GetMapping("/{detectiveId}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<DetectiveDTO> getDetectiveById(@PathVariable UUID detectiveId){
-        return new ResponseEntity<>(detectiveMapper.to(detectiveService.getDetectiveById(detectiveId)), HttpStatus.OK);
+        log.info("Get detective by id {}", detectiveId);
+        try{
+            return new ResponseEntity<>(detectiveMapper.to(detectiveService.getDetectiveById(detectiveId)), HttpStatus.OK);
+        } catch (Exception ex){
+            ex.printStackTrace();
+            log.debug("Detective not found id {}", detectiveId);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping("/")
