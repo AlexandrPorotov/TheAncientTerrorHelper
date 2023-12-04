@@ -4,5 +4,6 @@ public enum RegionType {
 
     AMERICA,
     EUROPE,
-    ASIA
+    ASIA,
+    none;
 }

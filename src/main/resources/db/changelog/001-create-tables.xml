@@ -3,6 +3,7 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
 
+
     <!--Create Detective Table-->
     <changeSet id="v1:1" author="Dale">
         <createTable tableName="detective">
@@ -26,7 +27,7 @@
     <!--Create Abilities Table-->
     <changeSet id="v1:2" author="Dale">
         <createTable tableName="abilities">
-            <column name="id" type="UUID">
+            <column name="id" type="UUID" defaultValueComputed="gen_random_uuid()">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_abilities_id"/>
             </column>
             <column name="knowledge" type="INTEGER"/>
@@ -41,7 +42,7 @@
     <!--Create Location Table-->
     <changeSet id="v1:3" author="Dale">
         <createTable tableName="location">
-            <column name="id" type="UUID">
+            <column name="id" type="UUID" defaultValueComputed="gen_random_uuid()">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_location_id"/>
             </column>
             <column name="number" type="INTEGER"/>
@@ -87,7 +88,7 @@
     <!--Create Paths Table-->
     <changeSet id="v1:7" author="Dale">
         <createTable tableName="path">
-            <column name="id" type="UUID">
+            <column name="id" type="UUID" defaultValueComputed="gen_random_uuid()">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_path_id"/>
             </column>
             <column name="type" type="VARCHAR(255)"/>
