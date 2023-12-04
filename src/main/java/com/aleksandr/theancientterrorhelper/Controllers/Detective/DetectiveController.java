@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RequestMapping("/api/v1/detectives")
@@ -48,6 +49,28 @@ public class DetectiveController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<DetectiveDTO> getDetectiveById(@PathVariable UUID detectiveId){
         return new ResponseEntity<>(detectiveMapper.to(detectiveService.getDetectiveById(detectiveId)), HttpStatus.OK);
+    }
+
+    @GetMapping("/")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<DetectiveDTO>> getAllDetectives(){
+        log.info("Get all detectives");
+        return new ResponseEntity<>(detectiveMapper.to(detectiveService.getAllDetective()),HttpStatus.OK);
+    }
+
+    @GetMapping("/id")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<UUID>> getAllDetectiveIds(){
+        log.info("Get all detectives id");
+        return new ResponseEntity<>(detectiveService.getAllDetectiveId(), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{detectiveId}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<UUID> deleteDetectiveById(@PathVariable UUID detectiveId){
+        log.info("Deleted detective by id {}", detectiveId);
+        detectiveService.deleteDetectiveById(detectiveId);
+        return new ResponseEntity<>(detectiveId, HttpStatus.OK);
     }
 
 }
