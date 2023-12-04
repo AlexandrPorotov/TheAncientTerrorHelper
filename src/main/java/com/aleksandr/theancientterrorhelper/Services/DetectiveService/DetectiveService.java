@@ -14,8 +14,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -44,6 +44,18 @@ public class DetectiveService {
 
     public Detective getDetectiveById(UUID detectiveId){
         return detectiveRepository.getReferenceById(detectiveId);
+    }
+
+    public void deleteDetectiveById(UUID detectiveId){
+        detectiveRepository.deleteById(detectiveId);
+    }
+
+    public List<Detective> getAllDetective(){
+        return detectiveRepository.findAll();
+    }
+
+    public List<UUID> getAllDetectiveId(){
+        return detectiveRepository.findAll().stream().map(Detective::getId).toList();
     }
 
 }
